@@ -1,0 +1,13 @@
+name: 'Setup NCBI Blast+'
+description: 'Download and install NCBI blast+ and add it to the PATH'
+inputs:
+  blast-version:
+    description: 'Version to use. Examples: 2.2.31, 2.2.30'
+    required: true
+    default: 'latest'
+outputs:
+  install-path:
+    description: 'The install path'
+runs:
+  using: 'node16'
+  main: 'dist/setup/index.js'
