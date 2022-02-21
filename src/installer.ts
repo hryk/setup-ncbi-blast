@@ -36,14 +36,14 @@ function getBlastURL(versionSpec: string, arch: string, osType: string) {
   return `${baseURL}/${versionSpec}/ncbi-blast-${versionSpec}+-${arch}-${osType}.tar.gz`;
 }
 
-export async function installer(versionSpec: string) {
+export async function installBlast(versionSpec: string) {
   const arch = os.arch();
   const platform = getPlatform();
   // validate os and architecutre
   validateArch(arch);
   validatePlatform(platform);
   // get download URL
-  const blastUrl = getBlastURL(versionSpec, arch, osType);
+  const blastUrl = getBlastURL(versionSpec, arch, platform);
   // download
   core.info("Downloading ...");
   const downloadPath = await tc.downloadTool(blastUrl);
@@ -57,7 +57,7 @@ export async function installer(versionSpec: string) {
   ]);
 
   core.info("Adding to the cache ...");
-  const toolPath = await tc.cacheDir(extPath, "blast", versionSpec, info.arch);
+  const toolPath = await tc.cacheDir(extPath, "blast", versionSpec, arch);
 
   core.addPath(toolPath);
 

@@ -38,6 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@actions/core", "npm:1.6.0"],
             ["@actions/github", "npm:5.0.0"],
             ["@actions/http-client", "npm:1.0.11"],
+            ["@actions/tool-cache", "npm:1.7.1"],
             ["@types/node", "npm:17.0.17"],
             ["@typescript-eslint/eslint-plugin", "virtual:bdc60a3e5c77fd29bd6bb0135710b1707b9fae2eebdb2f8345b1b012e4507baf244d41870379df5278ed0faed0fd5e45d767469ffe16381d9d1cb8c2f52e30c9#npm:5.11.0"],
             ["@typescript-eslint/parser", "virtual:bdc60a3e5c77fd29bd6bb0135710b1707b9fae2eebdb2f8345b1b012e4507baf244d41870379df5278ed0faed0fd5e45d767469ffe16381d9d1cb8c2f52e30c9#npm:5.11.0"],
@@ -55,6 +56,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@actions/core", "npm:1.6.0"],
             ["@actions/http-client", "npm:1.0.11"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@actions/exec", [
+        ["npm:1.1.0", {
+          "packageLocation": "./.yarn/cache/@actions-exec-npm-1.1.0-21a2b96015-1fad630ec2.zip/node_modules/@actions/exec/",
+          "packageDependencies": [
+            ["@actions/exec", "npm:1.1.0"],
+            ["@actions/io", "npm:1.1.1"]
           ],
           "linkType": "HARD",
         }]
@@ -78,6 +89,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@actions/http-client", "npm:1.0.11"],
             ["tunnel", "npm:0.0.6"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@actions/io", [
+        ["npm:1.1.1", {
+          "packageLocation": "./.yarn/cache/@actions-io-npm-1.1.1-2cd3dcb315-d291869b19.zip/node_modules/@actions/io/",
+          "packageDependencies": [
+            ["@actions/io", "npm:1.1.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@actions/tool-cache", [
+        ["npm:1.7.1", {
+          "packageLocation": "./.yarn/unplugged/@actions-tool-cache-npm-1.7.1-65278858df/node_modules/@actions/tool-cache/",
+          "packageDependencies": [
+            ["@actions/tool-cache", "npm:1.7.1"],
+            ["@actions/core", "npm:1.6.0"],
+            ["@actions/exec", "npm:1.1.0"],
+            ["@actions/http-client", "npm:1.0.11"],
+            ["@actions/io", "npm:1.1.1"],
+            ["semver", "npm:6.3.0"],
+            ["uuid", "npm:3.4.0"]
           ],
           "linkType": "HARD",
         }]
@@ -2112,6 +2147,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["semver", [
+        ["npm:6.3.0", {
+          "packageLocation": "./.yarn/cache/semver-npm-6.3.0-b3eace8bfd-1b26ecf6db.zip/node_modules/semver/",
+          "packageDependencies": [
+            ["semver", "npm:6.3.0"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:7.3.5", {
           "packageLocation": "./.yarn/cache/semver-npm-7.3.5-618cf5db6a-5eafe6102b.zip/node_modules/semver/",
           "packageDependencies": [
@@ -2138,6 +2180,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@actions/core", "npm:1.6.0"],
             ["@actions/github", "npm:5.0.0"],
             ["@actions/http-client", "npm:1.0.11"],
+            ["@actions/tool-cache", "npm:1.7.1"],
             ["@types/node", "npm:17.0.17"],
             ["@typescript-eslint/eslint-plugin", "virtual:bdc60a3e5c77fd29bd6bb0135710b1707b9fae2eebdb2f8345b1b012e4507baf244d41870379df5278ed0faed0fd5e45d767469ffe16381d9d1cb8c2f52e30c9#npm:5.11.0"],
             ["@typescript-eslint/parser", "virtual:bdc60a3e5c77fd29bd6bb0135710b1707b9fae2eebdb2f8345b1b012e4507baf244d41870379df5278ed0faed0fd5e45d767469ffe16381d9d1cb8c2f52e30c9#npm:5.11.0"],
@@ -2449,6 +2492,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/util-deprecate-npm-1.0.2-e3fe1a219c-474acf1146.zip/node_modules/util-deprecate/",
           "packageDependencies": [
             ["util-deprecate", "npm:1.0.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["uuid", [
+        ["npm:3.4.0", {
+          "packageLocation": "./.yarn/cache/uuid-npm-3.4.0-4fd8ef88ad-58de2feed6.zip/node_modules/uuid/",
+          "packageDependencies": [
+            ["uuid", "npm:3.4.0"]
           ],
           "linkType": "HARD",
         }]

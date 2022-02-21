@@ -1,9 +1,9 @@
 import * as core from "@actions/core";
 import * as github from "@actions/github";
 import * as httpm from "@actions/http-client";
-import installer from "installer";
+import * as installer from "./installer";
 
-const resolveBLASTVersion = function () {
+const resolveBLASTVersion = async function () {
   let version = core.getInput("blast-version");
   if (version === "latest" || !version) {
     // get latest version number
@@ -24,10 +24,10 @@ const resolveBLASTVersion = function () {
 export async function run() {
   try {
     // `who-to-greet` input defined in action metadata file
-    const blastVersion = resolveBLASTVersion();
+    const blastVersion = await resolveBLASTVersion();
     core.info(`Install NCBI BLAST+ version ${blastVersion}`);
 
-    installer.installBlast(version);
+    await installer.installBlast(blastVersion);
 
     const time = new Date().toTimeString();
     core.setOutput("time", time);
