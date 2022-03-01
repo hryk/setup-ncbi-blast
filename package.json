@@ -4,7 +4,8 @@
   "description": "Download and install NCBI blast+ and add it to the PATH",
   "main": "index.js",
   "scripts": {
-    "build": "ncc build -o dist/setup src/setup-ncbi-blast.ts"
+    "build": "ncc build -o dist/setup src/setup-ncbi-blast.ts",
+    "clean": "rimraf src/**/*.js dist/*"
   },
   "keywords": [
     "GitHub",
