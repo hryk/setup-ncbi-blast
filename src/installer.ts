@@ -2,6 +2,7 @@ import * as os from "os";
 import * as core from "@actions/core";
 import * as github from "@actions/github";
 import * as tc from "@actions/tool-cache";
+import * as exec from "@actions/exec";
 
 function getArchitecture() {}
 
@@ -56,6 +57,20 @@ export async function installBlast(versionSpec: string) {
     "1",
   ]);
   core.info(extPath);
+  const options = { listeners: {} };
+  let myOutput = "";
+  let myError = "";
+  options.listeners = {
+    stdout: (data: Buffer) => {
+      myOutput += data.toString();
+    },
+    stderr: (data: Buffer) => {
+      myError += data.toString();
+    },
+  };
+  await exec.exec("ls", ["-R", extPath], options);
+  core.info(myOutput);
+  core.info(myError);
   core.info("Adding to the cache ...");
   const toolPath = await tc.cacheDir(extPath, "blast", versionSpec, arch);
   core.info(toolPath);

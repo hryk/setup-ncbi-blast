@@ -14,7 +14,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@actions/exec@npm:^1.0.0":
+"@actions/exec@npm:^1.0.0, @actions/exec@npm:^1.1.0":
   version: 1.1.0
   resolution: "@actions/exec@npm:1.1.0"
   dependencies:
@@ -278,10 +278,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^17.0.17":
-  version: 17.0.17
-  resolution: "@types/node@npm:17.0.17"
-  checksum: 8ddba2829acdf1684fbd8fd248ec13f033efb70ecd1085677b547c40ef8e936a006b95eac3bdc28c47939c62526f3f027afeb4a930e30e4394923bbae4626476
+"@types/node@npm:^17.0.21":
+  version: 17.0.21
+  resolution: "@types/node@npm:17.0.21"
+  checksum: 89dcd2fe82f21d3634266f8384e9c865cf8af49685639fbdbd799bdd1040480fb1e8eeda2d3b9fce41edbe704d2a4be9f427118c4ae872e8d9bb7cbeb3c41a94
   languageName: node
   linkType: hard
 
@@ -1748,10 +1748,11 @@ __metadata:
   resolution: "setup-ncbi-blast@workspace:."
   dependencies:
     "@actions/core": ^1.6.0
+    "@actions/exec": ^1.1.0
     "@actions/github": ^5.0.0
     "@actions/http-client": ^1.0.11
     "@actions/tool-cache": ^1.7.1
-    "@types/node": ^17.0.17
+    "@types/node": ^17.0.21
     "@typescript-eslint/eslint-plugin": ^5.11.0
     "@typescript-eslint/parser": ^5.11.0
     "@vercel/ncc": ^0.33.1

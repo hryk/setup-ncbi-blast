@@ -36,10 +36,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["@actions/core", "npm:1.6.0"],
+            ["@actions/exec", "npm:1.1.0"],
             ["@actions/github", "npm:5.0.0"],
             ["@actions/http-client", "npm:1.0.11"],
             ["@actions/tool-cache", "npm:1.7.1"],
-            ["@types/node", "npm:17.0.17"],
+            ["@types/node", "npm:17.0.21"],
             ["@typescript-eslint/eslint-plugin", "virtual:bdc60a3e5c77fd29bd6bb0135710b1707b9fae2eebdb2f8345b1b012e4507baf244d41870379df5278ed0faed0fd5e45d767469ffe16381d9d1cb8c2f52e30c9#npm:5.11.0"],
             ["@typescript-eslint/parser", "virtual:bdc60a3e5c77fd29bd6bb0135710b1707b9fae2eebdb2f8345b1b012e4507baf244d41870379df5278ed0faed0fd5e45d767469ffe16381d9d1cb8c2f52e30c9#npm:5.11.0"],
             ["@vercel/ncc", "npm:0.33.1"],
@@ -380,10 +381,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/node", [
-        ["npm:17.0.17", {
-          "packageLocation": "./.yarn/cache/@types-node-npm-17.0.17-8bac2a57aa-8ddba2829a.zip/node_modules/@types/node/",
+        ["npm:17.0.21", {
+          "packageLocation": "./.yarn/cache/@types-node-npm-17.0.21-7d68eb6a13-89dcd2fe82.zip/node_modules/@types/node/",
           "packageDependencies": [
-            ["@types/node", "npm:17.0.17"]
+            ["@types/node", "npm:17.0.21"]
           ],
           "linkType": "HARD",
         }]
@@ -2178,10 +2179,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["setup-ncbi-blast", "workspace:."],
             ["@actions/core", "npm:1.6.0"],
+            ["@actions/exec", "npm:1.1.0"],
             ["@actions/github", "npm:5.0.0"],
             ["@actions/http-client", "npm:1.0.11"],
             ["@actions/tool-cache", "npm:1.7.1"],
-            ["@types/node", "npm:17.0.17"],
+            ["@types/node", "npm:17.0.21"],
             ["@typescript-eslint/eslint-plugin", "virtual:bdc60a3e5c77fd29bd6bb0135710b1707b9fae2eebdb2f8345b1b012e4507baf244d41870379df5278ed0faed0fd5e45d767469ffe16381d9d1cb8c2f52e30c9#npm:5.11.0"],
             ["@typescript-eslint/parser", "virtual:bdc60a3e5c77fd29bd6bb0135710b1707b9fae2eebdb2f8345b1b012e4507baf244d41870379df5278ed0faed0fd5e45d767469ffe16381d9d1cb8c2f52e30c9#npm:5.11.0"],
             ["@vercel/ncc", "npm:0.33.1"],

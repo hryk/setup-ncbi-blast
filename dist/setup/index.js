@@ -12188,6 +12188,7 @@ exports.installBlast = void 0;
 const os = __importStar(__nccwpck_require__(2037));
 const core = __importStar(__nccwpck_require__(1203));
 const tc = __importStar(__nccwpck_require__(7418));
+const exec = __importStar(__nccwpck_require__(9470));
 function getArchitecture() { }
 function validateArch(arch) {
     if (arch !== "x64") {
@@ -12236,6 +12237,20 @@ function installBlast(versionSpec) {
             "1",
         ]);
         core.info(extPath);
+        const options = { listeners: {} };
+        let myOutput = "";
+        let myError = "";
+        options.listeners = {
+            stdout: (data) => {
+                myOutput += data.toString();
+            },
+            stderr: (data) => {
+                myError += data.toString();
+            },
+        };
+        yield exec.exec("ls", ["-R", extPath], options);
+        core.info(myOutput);
+        core.info(myError);
         core.info("Adding to the cache ...");
         const toolPath = yield tc.cacheDir(extPath, "blast", versionSpec, arch);
         core.info(toolPath);
