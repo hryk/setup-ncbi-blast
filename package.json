@@ -1,6 +1,6 @@
 {
   "name": "setup-ncbi-blast",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Download and install NCBI blast+ and add it to the PATH",
   "main": "dist/setup/index.js",
   "scripts": {
