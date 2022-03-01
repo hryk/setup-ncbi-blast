@@ -11,3 +11,6 @@ outputs:
 runs:
   using: 'node16'
   main: 'dist/setup/index.js'
+branding:
+  icon: 'terminal'
+  color: 'green'
