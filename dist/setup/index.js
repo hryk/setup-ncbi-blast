@@ -12235,10 +12235,10 @@ function installBlast(versionSpec) {
             "--strip",
             "1",
         ]);
-        console.log(extPath);
+        core.info(extPath);
         core.info("Adding to the cache ...");
         const toolPath = yield tc.cacheDir(extPath, "blast", versionSpec, arch);
-        console.log(toolPath);
+        core.info(toolPath);
         core.addPath(toolPath);
         core.info("Done");
     });

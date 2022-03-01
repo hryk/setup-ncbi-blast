@@ -55,10 +55,10 @@ export async function installBlast(versionSpec: string) {
     "--strip",
     "1",
   ]);
-  console.log(extPath);
+  core.info(extPath);
   core.info("Adding to the cache ...");
   const toolPath = await tc.cacheDir(extPath, "blast", versionSpec, arch);
-  console.log(toolPath);
+  core.info(toolPath);
 
   core.addPath(toolPath);
 
