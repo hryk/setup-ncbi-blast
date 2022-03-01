@@ -26,14 +26,8 @@ export async function run() {
     // `who-to-greet` input defined in action metadata file
     const blastVersion = await resolveBLASTVersion();
     core.info(`Install NCBI BLAST+ version ${blastVersion}`);
-
-    await installer.installBlast(blastVersion);
-
-    const time = new Date().toTimeString();
-    core.setOutput("time", time);
-    // Get the JSON webhook payload for the event that triggered the workflow
-    const payload = JSON.stringify(github.context.payload, undefined, 2);
-    console.log(`The event payload: ${payload}`);
+    const installPath = await installer.installBlast(blastVersion);
+    core.setOutput("install-path", installPath);
   } catch (error: any) {
     core.setFailed(error.message);
   }

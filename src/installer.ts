@@ -64,4 +64,6 @@ export async function installBlast(versionSpec: string) {
   core.addPath(toolPath);
 
   core.info("Done");
+
+  return toolPath;
 }

@@ -2,7 +2,7 @@ name: 'Setup NCBI Blast+'
 description: 'Download and install NCBI blast+ and add it to the PATH'
 inputs:
   blast-version:
-    description: 'Version to use. Examples: 2.2.31, 2.2.30'
+    description: 'Version to use. Examples: 2.2.31, 2.2.30. default: latest'
     required: true
     default: 'latest'
 outputs:
