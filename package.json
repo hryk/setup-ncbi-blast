@@ -2,7 +2,7 @@
   "name": "setup-ncbi-blast",
   "version": "0.1.0",
   "description": "Download and install NCBI blast+ and add it to the PATH",
-  "main": "index.js",
+  "main": "dist/setup/index.js",
   "scripts": {
     "build": "ncc build -o dist/setup src/setup-ncbi-blast.ts",
     "clean": "rimraf dist/* src/**/*.js"
@@ -12,7 +12,7 @@
     "Actions",
     "Blast"
   ],
-  "author": "1VQ9",
+  "author": "hryk",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^17.0.21",
