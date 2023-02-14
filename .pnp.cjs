@@ -35,7 +35,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
-            ["@actions/core", "npm:1.6.0"],
+            ["@actions/core", "npm:1.10.0"],
             ["@actions/exec", "npm:1.1.0"],
             ["@actions/github", "npm:5.0.0"],
             ["@actions/http-client", "npm:1.0.11"],
@@ -43,7 +43,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:17.0.21"],
             ["@typescript-eslint/eslint-plugin", "virtual:bdc60a3e5c77fd29bd6bb0135710b1707b9fae2eebdb2f8345b1b012e4507baf244d41870379df5278ed0faed0fd5e45d767469ffe16381d9d1cb8c2f52e30c9#npm:5.11.0"],
             ["@typescript-eslint/parser", "virtual:bdc60a3e5c77fd29bd6bb0135710b1707b9fae2eebdb2f8345b1b012e4507baf244d41870379df5278ed0faed0fd5e45d767469ffe16381d9d1cb8c2f52e30c9#npm:5.11.0"],
-            ["@vercel/ncc", "npm:0.33.1"],
+            ["@vercel/ncc", "npm:0.36.1"],
             ["eslint", "npm:8.8.0"],
             ["prettier", "npm:2.5.1"],
             ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=493e53"]
@@ -52,6 +52,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@actions/core", [
+        ["npm:1.10.0", {
+          "packageLocation": "./.yarn/cache/@actions-core-npm-1.10.0-6885534582-0a75621e00.zip/node_modules/@actions/core/",
+          "packageDependencies": [
+            ["@actions/core", "npm:1.10.0"],
+            ["@actions/http-client", "npm:2.0.1"],
+            ["uuid", "npm:8.3.2"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:1.6.0", {
           "packageLocation": "./.yarn/cache/@actions-core-npm-1.6.0-a2628c48cb-ac4689b609.zip/node_modules/@actions/core/",
           "packageDependencies": [
@@ -89,6 +98,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@actions-http-client-npm-1.0.11-f7fe88143c-2c72834ec3.zip/node_modules/@actions/http-client/",
           "packageDependencies": [
             ["@actions/http-client", "npm:1.0.11"],
+            ["tunnel", "npm:0.0.6"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:2.0.1", {
+          "packageLocation": "./.yarn/cache/@actions-http-client-npm-2.0.1-8d69921341-799ec3df91.zip/node_modules/@actions/http-client/",
+          "packageDependencies": [
+            ["@actions/http-client", "npm:2.0.1"],
             ["tunnel", "npm:0.0.6"]
           ],
           "linkType": "HARD",
@@ -596,10 +613,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@vercel/ncc", [
-        ["npm:0.33.1", {
-          "packageLocation": "./.yarn/cache/@vercel-ncc-npm-0.33.1-63d0761dde-62af9ce257.zip/node_modules/@vercel/ncc/",
+        ["npm:0.36.1", {
+          "packageLocation": "./.yarn/cache/@vercel-ncc-npm-0.36.1-03b691ae30-dcb8db089b.zip/node_modules/@vercel/ncc/",
           "packageDependencies": [
-            ["@vercel/ncc", "npm:0.33.1"],
+            ["@vercel/ncc", "npm:0.36.1"],
             ["node-gyp", "npm:8.4.1"]
           ],
           "linkType": "HARD",
@@ -2178,7 +2195,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["setup-ncbi-blast", "workspace:."],
-            ["@actions/core", "npm:1.6.0"],
+            ["@actions/core", "npm:1.10.0"],
             ["@actions/exec", "npm:1.1.0"],
             ["@actions/github", "npm:5.0.0"],
             ["@actions/http-client", "npm:1.0.11"],
@@ -2186,7 +2203,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:17.0.21"],
             ["@typescript-eslint/eslint-plugin", "virtual:bdc60a3e5c77fd29bd6bb0135710b1707b9fae2eebdb2f8345b1b012e4507baf244d41870379df5278ed0faed0fd5e45d767469ffe16381d9d1cb8c2f52e30c9#npm:5.11.0"],
             ["@typescript-eslint/parser", "virtual:bdc60a3e5c77fd29bd6bb0135710b1707b9fae2eebdb2f8345b1b012e4507baf244d41870379df5278ed0faed0fd5e45d767469ffe16381d9d1cb8c2f52e30c9#npm:5.11.0"],
-            ["@vercel/ncc", "npm:0.33.1"],
+            ["@vercel/ncc", "npm:0.36.1"],
             ["eslint", "npm:8.8.0"],
             ["prettier", "npm:2.5.1"],
             ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=493e53"]
@@ -2503,6 +2520,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/uuid-npm-3.4.0-4fd8ef88ad-58de2feed6.zip/node_modules/uuid/",
           "packageDependencies": [
             ["uuid", "npm:3.4.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:8.3.2", {
+          "packageLocation": "./.yarn/cache/uuid-npm-8.3.2-eca0baba53-5575a8a75c.zip/node_modules/uuid/",
+          "packageDependencies": [
+            ["uuid", "npm:8.3.2"]
           ],
           "linkType": "HARD",
         }]

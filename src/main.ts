@@ -1,10 +1,11 @@
 import * as core from "@actions/core";
-import * as github from "@actions/github";
+//import * as github from "@actions/github";
 import * as httpm from "@actions/http-client";
 import * as installer from "./installer";
 
 const resolveBLASTVersion = async function () {
   let version = core.getInput("blast-version");
+  core.info(`NCBI BLAST+ version ${version} requested`);
   if (version === "latest" || !version) {
     // get latest version number
     const blastVersionURL =
@@ -23,11 +24,10 @@ const resolveBLASTVersion = async function () {
 
 export async function run() {
   try {
-    // `who-to-greet` input defined in action metadata file
     const blastVersion = await resolveBLASTVersion();
-    core.info(`Install NCBI BLAST+ version ${blastVersion}`);
+    core.info(`Installing NCBI BLAST+ version ${blastVersion}`);
     const installPath = await installer.installBlast(blastVersion);
-    core.setOutput("install-path", installPath);
+    core.setOutput("install-path", installPath);   
   } catch (error: any) {
     core.setFailed(error.message);
   }
