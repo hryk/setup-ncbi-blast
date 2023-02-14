@@ -1,10 +1,11 @@
 import * as os from "os";
 import * as path from "path";
 import * as core from "@actions/core";
-import * as github from "@actions/github";
+//import * as github from "@actions/github";
 import * as tc from "@actions/tool-cache";
+import * as fs from "fs";
 
-function getArchitecture() {}
+function getArchitecture() { }
 
 function validateArch(arch: string) {
   if (arch !== "x64") {
@@ -37,19 +38,34 @@ function getBlastURL(versionSpec: string, arch: string, osType: string) {
   return `${baseURL}/${versionSpec}/ncbi-blast-${versionSpec}+-${arch}-${osType}.tar.gz`;
 }
 
+// List directories in a path
+function getDirectories(path: string) {
+  return fs.readdirSync(path).filter(function (file: string) {
+    return fs.statSync(path + '/' + file).isDirectory();
+  });
+}
+
 export async function installBlast(versionSpec: string) {
+
+  // validate os and architecutre
   const arch = os.arch();
   const platform = getPlatform();
-  // validate os and architecutre
   validateArch(arch);
   validatePlatform(platform);
+
+  core.info("OS info - arch: " + arch + ", platform: " + platform)
+
   // get download URL
   const blastUrl = getBlastURL(versionSpec, arch, platform);
+
   // download
-  core.info("Downloading ...");
+  core.info("Downloading " + blastUrl)
   const downloadPath = await tc.downloadTool(blastUrl);
 
   // extraction
+  // 2023-02-14 extraction paths seem different across platforms
+  // linux: ['ncbi-blast-x.xx.x+'] / ['bin', 'doc']
+  // macosx/win: ['bin', 'doc']
   core.info("Extracting ...");
   const extPath = await tc.extractTar(downloadPath, undefined, [
     "xz",
@@ -57,11 +73,38 @@ export async function installBlast(versionSpec: string) {
     "1",
   ]);
 
-  core.info("Adding to the cache ...");
-  let toolPath = await tc.cacheDir(extPath, "blast", versionSpec, arch);
-  toolPath = path.join(toolPath, "bin");
+  // Dev - can comment out for prod
+  /*core.info("Examining extraction paths ...")
 
+  if (fs.existsSync(extPath)) {
+    core.info(extPath + " contents");
+    console.log(getDirectories(extPath))
+  } else {
+    core.error("Cannot find extPath path");
+  }*/ 
+
+  // Add to tool cache and PATH
+  core.info("Adding to the cache ...");
+  let toolPath = await tc.cacheDir(extPath, "blast", versionSpec, arch); 
+
+  // Given results of getDirectories(extPath)
+  let binPath = "bin";
+
+  if (platform === 'linux'){
+    binPath = `ncbi-blast-${versionSpec}+/` + binPath
+  }
+
+  toolPath = path.join(toolPath, binPath);
   core.addPath(toolPath);
+
+  // Test installation
+  core.info("Testing BLAST+ path exists ...")
+
+  if (fs.existsSync(toolPath)) {
+    core.info("BLAST+ path found at: " + toolPath);
+  } else {
+    core.error("Cannot find BLAST+ path");
+  }
 
   core.info("Done");
 
