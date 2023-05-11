@@ -7926,9 +7926,9 @@ function installBlast(versionSpec) {
         // Given results of getDirectories(extPath)
         let binPath = "bin";
         // 2023-05-11 - maybe this issue fixed by NCBI
-        //if (platform === 'linux'){
-        //  binPath = `ncbi-blast-${versionSpec}+/` + binPath
-        //}
+        if (platform === 'linux') {
+            binPath = `ncbi-blast-${versionSpec}+/` + binPath;
+        }
         toolPath = path.join(toolPath, binPath);
         core.addPath(toolPath);
         // Test installation
@@ -7938,6 +7938,7 @@ function installBlast(versionSpec) {
         }
         else {
             core.error("Cannot find BLAST+ path");
+            core.setFailed("Cannot find BLAST+ path");
         }
         core.info("Done");
         return toolPath;
