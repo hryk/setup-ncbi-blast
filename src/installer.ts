@@ -74,14 +74,14 @@ export async function installBlast(versionSpec: string) {
   ]);
 
   // Dev - can comment out for prod
-  /*core.info("Examining extraction paths ...")
+  core.info("Examining extraction paths ...")
 
   if (fs.existsSync(extPath)) {
     core.info(extPath + " contents");
     console.log(getDirectories(extPath))
   } else {
     core.error("Cannot find extPath path");
-  }*/ 
+  }
 
   // Add to tool cache and PATH
   core.info("Adding to the cache ...");
@@ -90,9 +90,10 @@ export async function installBlast(versionSpec: string) {
   // Given results of getDirectories(extPath)
   let binPath = "bin";
 
-  if (platform === 'linux'){
-    binPath = `ncbi-blast-${versionSpec}+/` + binPath
-  }
+  // 2023-05-11 - maybe this issue fixed by NCBI
+  //if (platform === 'linux'){
+  //  binPath = `ncbi-blast-${versionSpec}+/` + binPath
+  //}
 
   toolPath = path.join(toolPath, binPath);
   core.addPath(toolPath);
