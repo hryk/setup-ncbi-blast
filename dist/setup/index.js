@@ -7902,33 +7902,26 @@ function installBlast(versionSpec) {
         core.info("Downloading " + blastUrl);
         const downloadPath = yield tc.downloadTool(blastUrl);
         // extraction
-        // 2023-02-14 extraction paths seem different across platforms
-        // linux: ['ncbi-blast-x.xx.x+'] / ['bin', 'doc']
-        // macosx/win: ['bin', 'doc']
         core.info("Extracting ...");
         const extPath = yield tc.extractTar(downloadPath, undefined, [
             "xz",
             "--strip",
             "1",
         ]);
-        // Dev - can comment out for prod
-        core.info("Examining extraction paths ...");
-        if (fs.existsSync(extPath)) {
-            core.info(extPath + " contents");
-            console.log(getDirectories(extPath));
-        }
-        else {
-            core.error("Cannot find extPath path");
-        }
+        // Keep for future debugging with NCBI .gz files
+        //core.info("Examining extraction paths ...")
+        //
+        //if (fs.existsSync(extPath)) {
+        //  core.info(extPath + " contents");
+        //  console.log(getDirectories(extPath))
+        //} else {
+        //  core.error("Cannot find extPath path");
+        //}
         // Add to tool cache and PATH
         core.info("Adding to the cache ...");
         let toolPath = yield tc.cacheDir(extPath, "blast", versionSpec, arch);
         // Given results of getDirectories(extPath)
         let binPath = "bin";
-        // 2023-05-11 - maybe this issue fixed by NCBI
-        if (platform === 'linux') {
-            binPath = `ncbi-blast-${versionSpec}+/` + binPath;
-        }
         toolPath = path.join(toolPath, binPath);
         core.addPath(toolPath);
         // Test installation
@@ -7937,7 +7930,6 @@ function installBlast(versionSpec) {
             core.info("BLAST+ path found at: " + toolPath);
         }
         else {
-            core.error("Cannot find BLAST+ path");
             core.setFailed("Cannot find BLAST+ path");
         }
         core.info("Done");
