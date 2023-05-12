@@ -1,0 +1,22 @@
+name: Get NCBI BLAST+ and install
+
+on: [push]
+
+jobs:
+  get-install-check:
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - {os: macos-latest,   r: 'release'}
+          - {os: windows-latest, r: 'release'}
+          #- {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
+          - {os: ubuntu-latest,   r: 'release'}
+          #- {os: ubuntu-latest,   r: 'oldrel-1'}
+    runs-on: ${{ matrix.config.os }}
+    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Run NCBI BLAST action
+        uses: ./ # Uses an action in the root directory
