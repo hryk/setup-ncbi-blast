@@ -1,6 +1,6 @@
 name: Get NCBI BLAST+ and install
 
-on: [push]
+on: [workflow_dispatch, push]
 
 jobs:
   get-install-check:
